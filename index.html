@@ -11,9 +11,29 @@
   </head>
   <body>
     <div id="react-container"></div>
-  	<script src="build/helloworld.js"></script>
     <script type="text/jsx">
+      var MyComponent = React.createClass({
+        render: function() {
+          return <div>
+            <h1>{this.props.text}</h1>
+            <p>{this.props.children}</p>
+          </div>;
+        }
+      });
 
+      React.render(
+        <div>
+          <MyComponent text="Hello World">
+            This is a hello.
+          </MyComponent>
+          <MyComponent text="How are You?">
+            This is a How are You?.
+          </MyComponent>
+          <MyComponent text="Goodbye">
+            This is a Goodbye.
+          </MyComponent>
+        </div>
+        , document.getElementById('react-container'));
     </script>
   </body>
 </html>
